@@ -1,0 +1,228 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-color: #202020;
+  animation: bg 20s linear forwards;
+}
+
+.container {
+  display: flex;
+  flex-direction: column;
+  position: relative;
+  overflow: hidden;
+}
+
+.header {
+  display: flex;
+  flex-grow: 1;
+  animation: header 33s forwards;
+}
+
+.caption {
+  display: flex;
+  justify-content: flex-end;
+  flex-grow: 1;
+  font-family: cursive;
+  font-size: 1.5em;
+  color: #ebebeb;
+  padding-right: 0.75em;
+}
+
+.reset {
+  color: #a53232;
+}
+
+.arrow {
+  display: flex;
+  width: 5em;
+  height: 64px;
+  margin-right: 1.9em;
+}
+
+.window {
+  width: 600px;
+  height: 400px;
+  background-color: skyblue;
+  animation: sky 30s linear forwards;
+}
+
+.border {
+  width: 600px;
+  height: 400px;
+  position: absolute;
+  top: 64px;
+  background-color: transparent;
+  border: 20px solid #fdffde;
+  box-shadow: 10px 10px 10px #222;
+  z-index: 3;
+}
+
+.sunset {
+  display: flex;
+  flex-grow: 1;
+  width: 560px;
+  height: 200px;
+  background-image: url(images/sunset.png);
+  position: absolute;
+  bottom: 0px;
+  left: 20px;
+  opacity: 0;
+  animation: sunset 15s linear 5s forwards;
+  z-index: 0;
+}
+
+.moon {
+  width: 70px;
+  height: 70px;
+  border-radius: 50%;
+  background-color: white;
+  position: absolute;
+  opacity: 0;
+  filter: blur(2px);
+  z-index: 2;
+  animation: opacity 15s ease-in 14s forwards;
+}
+
+.blinds {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  position: relative;
+  top: 20px;
+  z-index: 3;
+}
+.valence,
+.slat {
+  width: 559px;
+  height: 20px;
+  margin: 0;
+  border: 1px solid gray;
+}
+
+.slat {
+  background: linear-gradient(gray, 25%, rgb(190, 230, 243));
+  animation: open 32s ease-out;
+}
+
+.valence {
+  background: linear-gradient(gray, 25%, #7eadbd);
+  z-index: 6;
+}
+
+.pull {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  position: absolute;
+  right: 42px;
+  top: 10px;
+  height: 234px;
+  z-index: 3;
+  animation: pull 1.5s forwards;
+}
+
+.string {
+  height: 94%;
+  width: 4px;
+  border: 1px solid #444;
+  background-color: #5e91ff;
+}
+.knob {
+  width: 8px;
+  height: 6%;
+  background-color: #812525;
+  border: 1px solid #444;
+  border-radius: 50%;
+}
+
+@keyframes sky {
+  0% {
+    background-color: skyblue;
+  }
+  100% {
+    background-color: #000616;
+  }
+}
+
+@keyframes opacity {
+  0% {
+    opacity: 0;
+    top: 175px;
+    right: 180px;
+  }
+  100% {
+    opacity: 1;
+    top: 140px;
+    right: 140px;
+  }
+}
+
+@keyframes sunset {
+  0% {
+    bottom: 0px;
+    opacity: 0.1;
+  }
+  35% {
+    opacity: 1;
+  }
+  100% {
+    bottom: -200px;
+    opacity: 0;
+  }
+}
+
+@keyframes bg {
+  0%,
+  8% {
+    background-color: #303030;
+  }
+  18% {
+    background-color: #bdbdbd;
+  }
+  100% {
+    background-color: #303030;
+  }
+}
+
+@keyframes header {
+  0%,
+  95% {
+    opacity: 0;
+  }
+  100% {
+    opacity: 1;
+  }
+}
+
+@keyframes pull {
+  0% {
+    height: 234px;
+  }
+  50% {
+    height: 300px;
+  }
+  100% {
+    height: 234px;
+  }
+}
+
+@keyframes open {
+  0% {
+    transform: rotatex(-0deg);
+  }
+  20%,
+  85% {
+    transform: rotatex(-80deg);
+  }
+  100% {
+    transform: rotatex(-0deg);
+  }
+}
